@@ -9,41 +9,36 @@ package io.sewsol.algoritmos;
  */
 public class BinarySearch {
 
-    public static int contador = 0;
 
     public int buscarLineal(int[] datos, int objetivo) {
-        BinarySearch.contador = 0;
-        int low = 0;
-        int high = datos.length-1;
-        int mid = -1;
+        int limite_inferior = 0;
+        int limite_superior = datos.length-1;
+        int no_encontrado = -1;
+        int mid = no_encontrado;
 
-        while ( low <= high ) {
-            BinarySearch.contador++;
-            mid = (low + high) / 2;
+        while ( limite_inferior <= limite_superior ) {
+            mid = (limite_inferior + limite_superior) / 2;   //calcula el punto medio de busqueda
 
-            if (datos[mid] == objetivo) break;
+            if (datos[mid] == objetivo) break;   //encontro el valor objetivo
 
-            if (datos[mid] > objetivo) 
-                high = mid-1;
-            else 
-                low = mid+1;
+            if (datos[mid] > objetivo)  //el objetivo se encuentra antes del punto medio
+                limite_superior = mid + 1;   //el limite superior de busqueda se ajusta abajo del punto medio inicial
+            else  //el objetivo se encuentra despues del punto medio
+                limite_inferior = mid - 1;   //el limite inferior de busqueda se ajusta arriba del punto medio inicial
 
         }
 
-        if (datos[mid] == objetivo) return mid;
-        else return -1;
+        if (datos[mid] == objetivo) return mid;  //encontro el valor objetivo y devuelve el indice de su posicion
+        else return no_encontrado;  
 
     }
 
     public int buscarRecursivo(int[] datos, int objetivo) {
-        BinarySearch.contador = 0;
         return buscarRecursivo(datos, objetivo, 0, datos.length-1);
     } 
 
 
     private int buscarRecursivo(int[] datos, int objetivo, int inicio, int fin) {
-
-        BinarySearch.contador++;
 
         int mid = (inicio + fin) / 2;
         if ( datos[mid] == objetivo) return mid;
