@@ -3,7 +3,7 @@ package io.sewsol.algoritmos;
 import java.util.Arrays;
 
 /**
- * Este algoritmo de ordenacion de complejidad Big O(n*n)
+ * Este algoritmo de ordenacion es de complejidad Big O(n*n)
  */
 public class SelectionSort {
  
