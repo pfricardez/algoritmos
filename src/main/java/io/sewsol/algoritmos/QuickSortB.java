@@ -39,7 +39,7 @@ public class QuickSortB {
 
         int i = p - 1;
 
-        for(int j=p; j<= r; j++) {
+        for(int j=p; j<= r-1; j++) {
 
             if( arr[j] < x ) {
 
