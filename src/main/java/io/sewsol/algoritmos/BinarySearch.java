@@ -16,7 +16,7 @@ public class BinarySearch {
         int no_encontrado = -1;
         int mid = no_encontrado;
 
-        while ( limite_inferior <= limite_superior ) {
+        while ( limite_inferior < limite_superior ) {
             mid = (limite_inferior + limite_superior) / 2;   //calcula el punto medio de busqueda
 
             if (datos[mid] == objetivo) break;   //encontro el valor objetivo
