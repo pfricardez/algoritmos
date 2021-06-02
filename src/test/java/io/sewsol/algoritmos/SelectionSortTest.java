@@ -22,5 +22,21 @@ public class SelectionSortTest {
         assertEquals(true, isEquals, "Simple sort");
 
     }
+
+    @Test
+    public void testMinimal() {
+
+        SelectionSort algoritmo = new SelectionSort();
+
+        assertArrayEquals(new int[] {1}, algoritmo.ordenar(new int[] {1}), "Ordenar arreglo de 1");
+    }
+    
+    @Test
+    public void testPair() {
+        
+        SelectionSort algoritmo = new SelectionSort();
+    
+        assertArrayEquals(new int[] {1, 2}, algoritmo.ordenar(new int[] {2, 1}), "Ordenar arreglo de 1");
+    }
     
 }
