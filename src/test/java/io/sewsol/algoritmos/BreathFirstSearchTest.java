@@ -31,5 +31,19 @@ public class BreathFirstSearchTest {
 
         assertEquals(true, result, "Grafos de numeros grandes");
     }
+
+    @Test
+    public void caminoMasCorto() {
+
+        BreadthFirstSearch algoritmo = new BreadthFirstSearch();
+
+        Graph grafo = new Graph(5, List.of( List.of(1, 2), List.of(1, 3), List.of(2, 4), List.of(4, 5), List.of(3, 5) ));
+
+        boolean result = algoritmo.search(grafo, 1, 5);
+
+        assertEquals(true, result, "Camino mas corto");
+    }
+
+
     
 }

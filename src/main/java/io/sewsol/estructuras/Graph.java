@@ -25,13 +25,11 @@ public class Graph {
     }
 
     private void addVertext(Integer v) {
-        if ( !nodos.containsKey(v) ) {
-            nodos.put(v,  new ArrayList<>());
-        }
+        if ( !nodos.containsKey(v) ) nodos.put(v,  new ArrayList<>());
     }
 
     private void addVertexChild(Integer v, Integer child) {
-        nodos.get(v).add(child);
+        if (nodos.containsKey(v)) nodos.get(v).add(child);
     }
 
     public int getTotalVertex() { 
@@ -44,7 +42,6 @@ public class Graph {
     }
 
     public void print() {
-
         Set<Integer> vertex = nodos.keySet();
         for(Integer v : vertex) {
             List<Integer> childs = nodos.get(v);

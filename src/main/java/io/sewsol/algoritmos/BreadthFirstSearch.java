@@ -13,42 +13,27 @@ public class BreadthFirstSearch {
     
     public boolean  search(Graph graph, Integer origin, Integer target) {
 
-        System.out.println("Search :" + target + " From Node : " + origin);
-        graph.print();
-
         Deque<Integer> deque = new ArrayDeque<>();
         deque.add(origin);
 
-        Map<Integer, Boolean> visited = new HashMap<>(graph.getTotalVertex());
+        Set<Integer> visited = new HashSet<>(graph.getTotalVertex());
 
         Integer inspected = null;
 
         while( (inspected = deque.poll()) != null ) {
-            System.out.println("Inspeccionado: " + inspected);
-            if ( !visited.containsKey(inspected) ) {
+            
+            if ( !visited.contains(inspected) ) {
 
-                if (inspected.equals(target)) {
-                    System.out.println("Target found");
-                    return true;
-                }
-                List<Integer> child = graph.getVertexChild(inspected);
-                if (child.size() > 0) {                
-                    deque.addAll(child);
-                    System.out.println("No encontrado, agrega hijos:" + Arrays.toString( child.toArray(new Integer[0]) ));                
-                }
-                else {
-                    System.out.println("No encontrado, no es parte de la ruta");
-                }
+                visited.add(inspected);
+
+                if (inspected.equals(target))   return true;
                 
-                visited.put(inspected, true);
-            }
-            else {
-                System.out.println("Ya fue inspeccionado el vertex:" + inspected);
+                deque.addAll(graph.getVertexChild(inspected));
+                
             }
 
         }
 
-        System.out.println("Targe not found");
         return false;
 
     }
