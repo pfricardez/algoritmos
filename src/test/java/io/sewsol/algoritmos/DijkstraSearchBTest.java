@@ -21,9 +21,8 @@ public class DijkstraSearchBTest {
         graph.get(4).put(3, 1);
         graph.get(4).put(5, 1);
 
-        algoritmo.searchMap(graph, 0);
+        Map<Integer, Integer> costs = algoritmo.searchMap(graph, 0);
 
-        assertEquals(true, true, "Busqueda sobre un grafo");
-
+        assertEquals(4, (int) costs.get(5), "Busqueda sobre un grafo");
     }
 }

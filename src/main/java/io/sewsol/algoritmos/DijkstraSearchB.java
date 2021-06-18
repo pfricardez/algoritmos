@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class DijkstraSearchB {
 
-    public void searchMap(Map<Integer, Map<Integer, Integer>> graph, Integer origin) {
+    public Map<Integer, Integer> searchMap(Map<Integer, Map<Integer, Integer>> graph, Integer origin) {
 
         Map<Integer, Integer> costs = new HashMap<>(graph.size());
         Map<Integer, Integer> parents = new HashMap<>(graph.size());
@@ -44,6 +44,8 @@ public class DijkstraSearchB {
 
         //print results
         parents.keySet().stream().forEach( x -> System.out.println("Node: "+x+" Parent:" + parents.get(x) + " Final Cost:"+ costs.get(x))) ;
+
+        return costs;
     }
 
     protected Integer getCheapestNode(Map<Integer, Integer> costs,  Set<Integer> visited ) {
