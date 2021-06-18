@@ -10,6 +10,7 @@ public class GraphWeightedBuilder {
     private List<List<Integer>> vertex;
 
     public GraphWeightedBuilder() {
+        noVertex=5;
         vertex = new ArrayList<>(10);
     }
     
@@ -24,9 +25,7 @@ public class GraphWeightedBuilder {
     }
 
     public GraphWeighted build() {
-
-        GraphWeighted graph = new GraphWeighted(noVertex, vertex);
-        return graph;
+        return new GraphWeighted(noVertex, vertex);
     }
 
 }

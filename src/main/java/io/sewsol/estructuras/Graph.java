@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Graph {
 
-    private HashMap<Integer, List<Integer>> nodos;
+    private Map<Integer, List<Integer>> nodos;
 
     public Graph(int vertex, List<List<Integer>> pairs) {
 

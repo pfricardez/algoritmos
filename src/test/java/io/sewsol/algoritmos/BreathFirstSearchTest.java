@@ -13,7 +13,12 @@ public class BreathFirstSearchTest {
 
         BreadthFirstSearch algoritmo = new BreadthFirstSearch();
 
-        Graph grafo = new Graph(4, List.of( List.of(1, 2), List.of(1, 3), List.of(2, 4), List.of(2, 3) ));
+        Graph grafo = new GraphBuilder().size(4)
+            .vertex(List.of(1, 2))
+            .vertex(List.of(1, 3))
+            .vertex(List.of(2, 4))
+            .vertex(List.of(2, 3))
+            .build();
 
         boolean result = algoritmo.search(grafo, 1, 5);
 
@@ -25,7 +30,12 @@ public class BreathFirstSearchTest {
 
         BreadthFirstSearch algoritmo = new BreadthFirstSearch();
 
-        Graph grafo = new Graph(4, List.of( List.of(100, 200), List.of(200, 300), List.of(200, 400), List.of(200, 100) ));
+        Graph grafo = new GraphBuilder().size(4)
+            .vertex(List.of(100, 200))
+            .vertex(List.of(200, 300))
+            .vertex(List.of(200, 400))
+            .vertex(List.of(200, 100))
+            .build();
 
         boolean result = algoritmo.search(grafo, 200, 400);
 
@@ -36,15 +46,18 @@ public class BreathFirstSearchTest {
     public void caminoMasCorto() {
 
         BreadthFirstSearch algoritmo = new BreadthFirstSearch();
-
-        Graph grafo = new Graph(5, List.of( List.of(1, 2), List.of(1, 3), List.of(2, 4), List.of(4, 5), List.of(3, 5) ));
+        
+        Graph grafo = new GraphBuilder().size(5)
+            .vertex(List.of(1, 2))
+            .vertex(List.of(1, 3))
+            .vertex(List.of(2, 4))
+            .vertex(List.of(4, 5))
+            .vertex(List.of(3, 5))
+            .build();
 
         int result = algoritmo.getShortPath(grafo, 1, 5);
 
         assertEquals(2, result, "Camino mas corto");
     }
 
-
-
-    
 }
