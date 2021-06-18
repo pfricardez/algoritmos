@@ -7,8 +7,7 @@ import io.sewsol.estructuras.GraphWeighted.Node;
 
 public class DijkstraSearch {
 
-    public boolean  search(GraphWeighted graph, Integer a, Integer b) {
-
+    public Map<Integer, Integer> search(GraphWeighted graph, Integer a) {
 
         Map<Integer, Integer> costs = new HashMap<>(graph.size()); 
         Map<Integer, Integer> parents = new HashMap<>(graph.size());
@@ -16,11 +15,8 @@ public class DijkstraSearch {
 
         initParents(graph, parents, a);
         initCosts(graph, costs, a);
-        printCosts(costs);
-        printParents(parents);
 
         Integer node = findLowestNode(costs, visited);
-        System.out.println("LowestNode:" + node);
         while(node!=null) {
             Integer cost = costs.get(node);
 
@@ -32,15 +28,13 @@ public class DijkstraSearch {
                     parents.replace(n.getValue(), node);
                 }
             }
-            printCosts(costs);
-            printParents(parents);
             visited.add(node);
             node = findLowestNode(costs, visited);
-            System.out.println("LowestNode:" + node);
         }
 
-        return false;
-
+        printCosts(costs);
+        printParents(parents);
+        return costs;
 
     }
 
